@@ -184,7 +184,6 @@
   </div>
 
   <script>
-    
     const fechaTexto = "29/09/2025";
     const fechaDiv = document.getElementById("fecha");
     let i = 0;
@@ -260,18 +259,17 @@
 
     function iniciarFuegosArtificiales() {
       fechaDiv.style.display = "none";
-      let interval = setInterval(createFirework, 300);
+
+      // Intervalo que sigue creando fuegos artificiales continuamente
+      setInterval(createFirework, 300);
       animateFireworks();
 
+      // Mostrar sobre
       setTimeout(() => {
-        clearInterval(interval);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        canvas.style.display = "none";
         mostrarSobre();
-      }, 5000);
+      }, 1000);
     }
 
-    
     function mostrarSobre() {
       const sobreDiv = document.getElementById("sobre");
       sobreDiv.style.display = "block";
@@ -284,21 +282,20 @@
     function abrirSobre() {
       const sobre = document.querySelector(".sobre");
       sobre.classList.add("open");
-      
+
       setTimeout(() => {
         const sobreDiv = document.getElementById("sobre");
         const mensajeFinal = document.getElementById("mensaje-final");
+        // Ocultar solo el sobre, mantener los fuegos artificiales
         sobreDiv.style.display = "none";
         mensajeFinal.style.display = "block";
-        
-        
+
         setTimeout(() => {
           mensajeFinal.classList.add("show");
         }, 100);
       }, 2000);
     }
 
-    
     escribirFecha();
   </script>
 </body>
